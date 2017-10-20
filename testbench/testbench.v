@@ -113,7 +113,7 @@ module sm_testbench;
     //simulation debug output
     integer cycle; initial cycle = 0;
 
-    initial regAddr = 0; // get PC
+    initial regAddr = 4'b0010; // get PC
 
     always @ (posedge clk)
     begin
