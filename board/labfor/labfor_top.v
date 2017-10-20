@@ -56,13 +56,11 @@ wire	[31:0]	h7segment = regData;
 wire	[6:0]	HEX0_D = {IND_1A, IND_1B, IND_1C, IND_1D, IND_1E, IND_1F, IND_1G};
 wire	[6:0]	HEX1_D = {IND_2A, IND_2B, IND_2C, IND_2D, IND_2E, IND_2F, IND_2G};
 
-sm_hex_display digit_1 ( h7segment [ 7: 4] , {IND_2A, IND_2B, IND_2C, IND_2D, IND_2E, IND_2F, IND_2G} );
-sm_hex_display digit_0 ( h7segment [ 3: 0] , {IND_1A, IND_1B, IND_1C, IND_1D, IND_1E, IND_1F, IND_1G} );
+sm_hex_display digit_1 ( h7segment [ 7: 4] , {IND_1A, IND_1B, IND_1C, IND_1D, IND_1E, IND_1F, IND_1G} );
+sm_hex_display digit_0 ( h7segment [ 3: 0] , {IND_2A, IND_2B, IND_2C, IND_2D, IND_2E, IND_2F, IND_2G} );
 
 assign LED[7:1] = regData[6:0];
 assign LED[0] = clk_n;
-//assign {IND_1A, IND_1B, IND_1C, IND_1D, IND_1E, IND_1F, IND_1G} = HEX0_D;
-//assign {IND_2A, IND_2B, IND_2C, IND_2D, IND_2E, IND_2F, IND_2G} = HEX1_D;
 
 
 endmodule 

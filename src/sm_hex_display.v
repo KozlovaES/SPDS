@@ -7,22 +7,22 @@ module sm_hex_display
 
     always @*
         case (digit)
-        'h0: seven_segments = 'b1000000;  // a b c d e f g
-        'h1: seven_segments = 'b1111001;
-        'h2: seven_segments = 'b0100100;  //   --a--
-        'h3: seven_segments = 'b0110000;  //  |     |
-        'h4: seven_segments = 'b0011001;  //  f     b
-        'h5: seven_segments = 'b0010010;  //  |     |
-        'h6: seven_segments = 'b0000010;  //   --g--
-        'h7: seven_segments = 'b1111000;  //  |     |
+        'h0: seven_segments = 'b0000001;  // a b c d e f g
+        'h1: seven_segments = 'b1001111;
+        'h2: seven_segments = 'b0010010;  //   --a--
+        'h3: seven_segments = 'b0000110;  //  |     |
+        'h4: seven_segments = 'b1001100;  //  f     b
+        'h5: seven_segments = 'b0100100;  //  |     |
+        'h6: seven_segments = 'b0100000;  //   --g--
+        'h7: seven_segments = 'b0001111;  //  |     |
         'h8: seven_segments = 'b0000000;  //  e     c
-        'h9: seven_segments = 'b0011000;  //  |     |
+        'h9: seven_segments = 'b0000100;  //  |     |
         'ha: seven_segments = 'b0001000;  //   --d-- 
-        'hb: seven_segments = 'b0000011;
-        'hc: seven_segments = 'b1000110;
-        'hd: seven_segments = 'b0100001;
-        'he: seven_segments = 'b0000110;
-        'hf: seven_segments = 'b0001110;
+        'hb: seven_segments = 'b1100000;
+        'hc: seven_segments = 'b0110001;
+        'hd: seven_segments = 'b1000010;
+        'he: seven_segments = 'b0110000;
+        'hf: seven_segments = 'b0111000;
         endcase
 
 endmodule
