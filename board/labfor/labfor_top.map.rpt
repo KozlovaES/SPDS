@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labfor_top
-Thu Oct 19 15:36:15 2017
+Fri Oct 20 19:27:59 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                          ;
 +-----------------------------+-----------------------------------------+
-; Analysis & Synthesis Status ; Failed - Thu Oct 19 15:36:15 2017       ;
+; Analysis & Synthesis Status ; Failed - Fri Oct 20 19:27:59 2017       ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name               ; labfor_top                              ;
 ; Top-level Entity Name       ; labfor_top                              ;
@@ -142,7 +142,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
-    Info: Processing started: Thu Oct 19 15:36:14 2017
+    Info: Processing started: Fri Oct 20 19:27:59 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labfor_top -c labfor_top
 Warning: Tcl Script File lpm_counter0.qip not found
     Info: set_global_assignment -name QIP_FILE lpm_counter0.qip
@@ -169,22 +169,9 @@ Info: Found 3 design units, including 3 entities, in source file /desktop/digita
     Info: Found entity 3: sm_clk_divider
 Info: Found 1 design units, including 1 entities, in source file labfor_top.v
     Info: Found entity 1: labfor_top
-Warning (10236): Verilog HDL Implicit Net warning at labfor_top.v(46): created implicit net for "clk"
 Info: Elaborating entity "labfor_top" for the top level hierarchy
-Warning (10030): Net "IND_1A" at labfor_top.v(13) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1B" at labfor_top.v(14) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1C" at labfor_top.v(15) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1D" at labfor_top.v(16) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1E" at labfor_top.v(17) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1F" at labfor_top.v(18) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_1G" at labfor_top.v(19) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2A" at labfor_top.v(21) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2B" at labfor_top.v(22) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2C" at labfor_top.v(23) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2D" at labfor_top.v(24) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2E" at labfor_top.v(25) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2F" at labfor_top.v(26) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "IND_2G" at labfor_top.v(27) has no driver or initial value, using a default initial value '0'
+Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(56): object "HEX0_D" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(57): object "HEX1_D" assigned a value but never read
 Info: Elaborating entity "sm_top" for hierarchy "sm_top:sm_top"
 Info: Elaborating entity "sm_metafilter" for hierarchy "sm_top:sm_top|sm_metafilter:f0"
 Info: Elaborating entity "sm_metafilter" for hierarchy "sm_top:sm_top|sm_metafilter:f1"
@@ -194,10 +181,10 @@ Info: Elaborating entity "sm_register_we" for hierarchy "sm_top:sm_top|sm_clk_di
 Info: Elaborating entity "sm_rom" for hierarchy "sm_top:sm_top|sm_rom:reset_rom"
 Error (10054): Verilog HDL File I/O error at sm_rom.v(14): can't open Verilog Design File "program.hex" File: D:/Desktop/DigitalDevices/schoolMIPS/src/sm_rom.v Line: 14
 Error: Can't elaborate user hierarchy "sm_top:sm_top|sm_rom:reset_rom" File: D:/Desktop/DigitalDevices/schoolMIPS/src/sm_top.v Line: 36
-Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 18 warnings
+Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 5 warnings
     Error: Peak virtual memory: 231 megabytes
-    Error: Processing ended: Thu Oct 19 15:36:15 2017
-    Error: Elapsed time: 00:00:01
+    Error: Processing ended: Fri Oct 20 19:27:59 2017
+    Error: Elapsed time: 00:00:00
     Error: Total CPU time (on all processors): 00:00:01
 
 

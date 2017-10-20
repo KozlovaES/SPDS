@@ -32,8 +32,8 @@ module labfor_top (
 wire			clkIn = CLK;
 wire			rst_n = A2;
 wire			clkEnable = B2;
-wire	[3:0]	clkDevide = {D1, C1, B1, A1};
-wire	[3:0]	regAddr = 4'b0000;
+wire	[3:0]	clkDevide = 4'b1010;
+wire	[4:0]	regAddr = {C1, B1, A1, D2, C2};
 wire	[31:0]	regData;
 wire 			clk_n;
 
