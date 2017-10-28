@@ -25,7 +25,7 @@ module sm_cpu
     wire        regWrite;
     wire        aluSrc;
     wire        aluZero;
-    wire [ 2:0] aluControl;
+    wire [ 3:0] aluControl;
 
     //program counter
     wire [31:0] pc;
@@ -63,7 +63,8 @@ module sm_cpu
     );
 
     //sign extension
-    wire [31:0] signImm = { {16 { instr[15] }}, instr[15:0] };
+    wire signExtend;
+    wire [31:0] signImm = (~signExtend) ? { {16 { instr[15] }}, instr[15:0] } : { {16 {1'b0}}, instr[15:0] };
     assign pcBranch = pcNext + signImm;
 
     //alu
@@ -89,7 +90,8 @@ module sm_cpu
         .regDst     ( regDst       ), 
         .regWrite   ( regWrite     ), 
         .aluSrc     ( aluSrc       ),
-        .aluControl ( aluControl   )
+        .aluControl ( aluControl   ),
+        .signExtend ( signExtend   )
     );
 
 endmodule
@@ -103,7 +105,8 @@ module sm_control
     output reg       regDst, 
     output reg       regWrite, 
     output reg       aluSrc,
-    output reg [2:0] aluControl
+    output reg [3:0] aluControl,
+    output reg 		 signExtend
 );
     reg          branch;
     reg          condZero;
@@ -115,6 +118,7 @@ module sm_control
         regDst      = 1'b0;
         regWrite    = 1'b0;
         aluSrc      = 1'b0;
+        signExtend  = 1'b0;
         aluControl  = `ALU_ADD;
 
         casez( {cmdOper,cmdFunk} )
@@ -125,12 +129,16 @@ module sm_control
             { `C_SPEC,  `F_SRL  } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SRL;  end
             { `C_SPEC,  `F_SLTU } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SLTU; end
             { `C_SPEC,  `F_SUBU } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SUBU; end
+            { `C_SPEC,  `F_SLLV } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SLLV; end
+			{ `C_SPEC,  `F_NOR  } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_NOR;  end
 
             { `C_ADDIU, `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_ADD;  end
             { `C_LUI,   `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_LUI;  end
+            { `C_XORI,	`F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; signExtend = 1'b1; aluControl = `ALU_XORI; end
 
             { `C_BEQ,   `F_ANY  } : begin branch = 1'b1; condZero = 1'b1; aluControl = `ALU_SUBU; end
-            { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; end
+            { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end        
+            { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end           
         endcase
     end
 endmodule
@@ -140,7 +148,7 @@ module sm_alu
 (
     input  [31:0] srcA,
     input  [31:0] srcB,
-    input  [ 2:0] oper,
+    input  [ 3:0] oper,
     input  [ 4:0] shift,
     output        zero,
     output reg [31:0] result
@@ -154,6 +162,14 @@ module sm_alu
             `ALU_SRL  : result = srcB >> shift;
             `ALU_SLTU : result = (srcA < srcB) ? 1 : 0;
             `ALU_SUBU : result = srcA - srcB;
+            `ALU_XORI : result = srcA ^ srcB;
+            // Операнды SLLV идут в другом порядке
+            `ALU_SLLV : result = srcB << srcA;
+            `ALU_NOR  : result = ~(srcA | srcB);
+            
+            // Операция проверки знака
+            `ALU_SIGN : result = (srcA[31] == 1) ? 1 : 0;
+            
         endcase
     end
 
