@@ -83,7 +83,7 @@ GND*                         : 11        :        :                   :         
 DATA0                        : 13        : input  :                   :         : 1         :                
 nCONFIG                      : 14        :        :                   :         : 1         :                
 VCCA_PLL1                    : 15        : power  :                   : 1.5V    :           :                
-GND+                         : 16        :        :                   :         : 1         :                
+CLK                          : 16        : input  : 3.3-V LVTTL       :         : 1         : Y              
 GND+                         : 17        :        :                   :         : 1         :                
 GNDA_PLL1                    : 18        : gnd    :                   :         :           :                
 GNDG_PLL1                    : 19        : gnd    :                   :         :           :                
@@ -116,14 +116,14 @@ GND                          : 45        : gnd    :                   :         
 VCCINT                       : 46        : power  :                   : 1.5V    :           :                
 GND*                         : 47        :        :                   :         : 4         :                
 GND*                         : 48        :        :                   :         : 4         :                
-GND*                         : 49        :        :                   :         : 4         :                
-GND*                         : 50        :        :                   :         : 4         :                
-GND*                         : 51        :        :                   :         : 4         :                
-GND*                         : 52        :        :                   :         : 4         :                
-GND*                         : 53        :        :                   :         : 4         :                
-GND*                         : 54        :        :                   :         : 4         :                
-GND*                         : 55        :        :                   :         : 4         :                
-GND*                         : 56        :        :                   :         : 4         :                
+D1                           : 49        : input  : 3.3-V LVTTL       :         : 4         : Y              
+C1                           : 50        : input  : 3.3-V LVTTL       :         : 4         : Y              
+B1                           : 51        : input  : 3.3-V LVTTL       :         : 4         : Y              
+A1                           : 52        : input  : 3.3-V LVTTL       :         : 4         : Y              
+D2                           : 53        : input  : 3.3-V LVTTL       :         : 4         : Y              
+C2                           : 54        : input  : 3.3-V LVTTL       :         : 4         : Y              
+B2                           : 55        : input  : 3.3-V LVTTL       :         : 4         : Y              
+A2                           : 56        : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 57        :        :                   :         : 4         :                
 GND*                         : 58        :        :                   :         : 4         :                
 GND*                         : 59        :        :                   :         : 4         :                
@@ -164,38 +164,38 @@ GND+                         : 93        :        :                   :         
 GND*                         : 94        :        :                   :         : 3         :                
 TDI                          : 95        : input  :                   :         : 3         :                
 GND*                         : 96        :        :                   :         : 3         :                
-GND*                         : 97        :        :                   :         : 3         :                
-GND*                         : 98        :        :                   :         : 3         :                
-GND*                         : 99        :        :                   :         : 3         :                
-GND*                         : 100       :        :                   :         : 3         :                
+IND_2B                       : 97        : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2A                       : 98        : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2F                       : 99        : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2H                       : 100       : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 101       : gnd    :                   :         :           :                
 VCCIO3                       : 102       : power  :                   : 3.3V    : 3         :                
-GND*                         : 103       :        :                   :         : 3         :                
-GND*                         : 104       :        :                   :         : 3         :                
-GND*                         : 105       :        :                   :         : 3         :                
-GND*                         : 106       :        :                   :         : 3         :                
-GND*                         : 107       :        :                   :         : 3         :                
-GND*                         : 108       :        :                   :         : 3         :                
-GND*                         : 109       :        :                   :         : 2         :                
-GND*                         : 110       :        :                   :         : 2         :                
-GND*                         : 111       :        :                   :         : 2         :                
-GND*                         : 112       :        :                   :         : 2         :                
-GND*                         : 113       :        :                   :         : 2         :                
-GND*                         : 114       :        :                   :         : 2         :                
+IND_2C                       : 103       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2G                       : 104       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2D                       : 105       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_2E                       : 106       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_1H                       : 107       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_1C                       : 108       : output : 3.3-V LVTTL       :         : 3         : Y              
+IND_1D                       : 109       : output : 3.3-V LVTTL       :         : 2         : Y              
+IND_1E                       : 110       : output : 3.3-V LVTTL       :         : 2         : Y              
+IND_1B                       : 111       : output : 3.3-V LVTTL       :         : 2         : Y              
+IND_1A                       : 112       : output : 3.3-V LVTTL       :         : 2         : Y              
+IND_1G                       : 113       : output : 3.3-V LVTTL       :         : 2         : Y              
+IND_1F                       : 114       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 115       : power  :                   : 3.3V    : 2         :                
 GND                          : 116       : gnd    :                   :         :           :                
 VCCINT                       : 117       : power  :                   : 1.5V    :           :                
 GND                          : 118       : gnd    :                   :         :           :                
 GND*                         : 119       :        :                   :         : 2         :                
 GND*                         : 120       :        :                   :         : 2         :                
-GND*                         : 121       :        :                   :         : 2         :                
-GND*                         : 122       :        :                   :         : 2         :                
-GND*                         : 123       :        :                   :         : 2         :                
-GND*                         : 124       :        :                   :         : 2         :                
-GND*                         : 125       :        :                   :         : 2         :                
-GND*                         : 126       :        :                   :         : 2         :                
-GND*                         : 127       :        :                   :         : 2         :                
-GND*                         : 128       :        :                   :         : 2         :                
+LED[7]                       : 121       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[6]                       : 122       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[5]                       : 123       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[4]                       : 124       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[3]                       : 125       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[2]                       : 126       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[1]                       : 127       : output : 3.3-V LVTTL       :         : 2         : Y              
+LED[0]                       : 128       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 129       :        :                   :         : 2         :                
 GND*                         : 130       :        :                   :         : 2         :                
 GND*                         : 131       :        :                   :         : 2         :                
