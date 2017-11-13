@@ -17,7 +17,8 @@ module sm_cpu
     input   [ 4:0]  regAddr,    // debug access reg address
     output  [31:0]  regData,    // debug access reg data
     output  [31:0]  imAddr,     // instruction memory address
-    input   [31:0]  imData      // instruction memory data
+    input   [31:0]  imData,     // instruction memory data
+    input	[7:0]	extData		// input for data
 );
     //control wires
     wire        pcSrc;
@@ -26,6 +27,7 @@ module sm_cpu
     wire        aluSrc;
     wire        aluZero;
     wire [ 3:0] aluControl;
+    wire		outSource;
 
     //program counter
     wire [31:0] pc;
@@ -64,8 +66,9 @@ module sm_cpu
 
     //sign extension
     wire signExtend;
-    wire [31:0] signImm = (~signExtend) ? { {16 { instr[15] }}, instr[15:0] } : { {16 {1'b0}}, instr[15:0] };
-    assign pcBranch = pcNext + signImm;
+    wire [31:0] signImm = (outSource) ? {{24 { extData[7] }}, extData[7:0] } 
+    : (~signExtend) ? { {16 { instr[15] }}, instr[15:0] } : { {16 {1'b0}}, instr[15:0] };
+	assign pcBranch = pcNext + signImm;
 
     //alu
     wire [31:0] srcB = aluSrc ? signImm : rd2;
@@ -106,7 +109,8 @@ module sm_control
     output reg       regWrite, 
     output reg       aluSrc,
     output reg [3:0] aluControl,
-    output reg 		 signExtend
+    output reg 		 signExtend,
+    output reg		 outSource
 );
     reg          branch;
     reg          condZero;
@@ -120,6 +124,7 @@ module sm_control
         aluSrc      = 1'b0;
         signExtend  = 1'b0;
         aluControl  = `ALU_ADD;
+        outSource	= 1'b0;
 
         casez( {cmdOper,cmdFunk} )
             default               : ;
@@ -138,7 +143,9 @@ module sm_control
 
             { `C_BEQ,   `F_ANY  } : begin branch = 1'b1; condZero = 1'b1; aluControl = `ALU_SUBU; end
             { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end        
-            { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end           
+            { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end 
+            
+            { `C_LOAD,  `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; outSource = 1'b1; aluControl = `ALU_SUBU;	end          
         endcase
     end
 endmodule

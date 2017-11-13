@@ -30,13 +30,14 @@ module labfor_top (
 
 
 wire			clkIn = CLK;
-wire			rst_n = A2;
-wire			clkEnable = B2;
+wire			rst_n = 1;
+wire			clkEnable = 1;
 wire	[3:0]	clkDevide = 4'b1010;
-wire	[4:0]	regAddr = {C1, B1, A1, D2, C2};	// Управляем выводом регистра с помощью пяти переключателей
+wire	[4:0]	regAddr = 5'b00010;	
 wire	[31:0]	regData;						// Выводимый регистр с номером regAddr
 wire 			clk_n;
-
+// Задаем входные данные при помощи восьми переключателец
+wire	[7:0]	extData = {D1, C1, B1, A1, D2, C2, B2, A2};
 
 sm_top sm_top
     (
@@ -46,7 +47,8 @@ sm_top sm_top
         .clkEnable  ( clkEnable ),
         .clk        ( clk_n     ),
         .regAddr    ( regAddr   ),	// Подключение адреса
-        .regData    ( regData   )	// Подключение вывода регистра
+        .regData    ( regData   ),	// Подключение вывода регистра
+        .extData	( extData	)	// Подключение входа вводимых данных
     );
 
 assign IND_1H = 1'b1;

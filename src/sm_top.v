@@ -8,7 +8,8 @@ module sm_top
     input           clkEnable,
     output          clk,
     input   [ 4:0 ] regAddr,
-    output  [31:0 ] regData
+    output  [31:0 ] regData,
+    input	[7:0  ] extData
 );
     //metastability input filters
     wire    [ 3:0 ] devide;

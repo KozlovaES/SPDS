@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labfor_top
-Mon Oct 30 19:46:23 2017
+Mon Nov 13 18:24:37 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -13,20 +13,18 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Source assignments for sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0|altsyncram_mgc1:auto_generated
- 13. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f0
- 14. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f1
- 15. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f2
- 16. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_clk_divider:sm_clk_divider
- 17. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_rom:reset_rom
- 18. Parameter Settings for Inferred Entity Instance: sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0
- 19. altsyncram Parameter Settings by Entity Instance
- 20. Port Connectivity Checks: "sm_top:sm_top"
- 21. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f0
+ 12. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f1
+ 13. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f2
+ 14. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_clk_divider:sm_clk_divider
+ 15. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_rom:reset_rom
+ 16. Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"
+ 17. Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu"
+ 18. Port Connectivity Checks: "sm_top:sm_top"
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -52,15 +50,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                          ;
 +-----------------------------+-----------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Oct 30 19:46:23 2017   ;
+; Analysis & Synthesis Status ; Successful - Mon Nov 13 18:24:35 2017   ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name               ; labfor_top                              ;
 ; Top-level Entity Name       ; labfor_top                              ;
 ; Family                      ; Cyclone                                 ;
-; Total logic elements        ; 73                                      ;
+; Total logic elements        ; 27                                      ;
 ; Total pins                  ; 33                                      ;
 ; Total virtual pins          ; 0                                       ;
-; Total memory bits           ; 256                                     ;
+; Total memory bits           ; 0                                       ;
 ; Total PLLs                  ; 0                                       ;
 +-----------------------------+-----------------------------------------+
 
@@ -152,22 +150,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                   ;
-+----------------------------------+-----------------+---------------------------------------+-------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path                                ;
-+----------------------------------+-----------------+---------------------------------------+-------------------------------------------------------------+
-; ../program/program.hex           ; yes             ; User Hexadecimal (Intel-Format) File  ; F:/SPDS/LR_v1/board/program/program.hex                     ;
-; ../../src/sm_cpu.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_cpu.v                                  ;
-; ../../src/sm_hex_display.v       ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_hex_display.v                          ;
-; ../../src/sm_register.v          ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_register.v                             ;
-; ../../src/sm_rom.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_rom.v                                  ;
-; ../../src/sm_top.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_top.v                                  ;
-; labfor_top.v                     ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/board/labfor/labfor_top.v                     ;
-; sm_cpu.vh                        ; yes             ; Auto-Found Unspecified File           ; f:/spds/lr_v1/src/sm_cpu.vh                                 ;
-; altsyncram.tdf                   ; yes             ; Megafunction                          ; c:/altera/91/quartus/libraries/megafunctions/altsyncram.tdf ;
-; db/altsyncram_mgc1.tdf           ; yes             ; Auto-Generated Megafunction           ; F:/SPDS/LR_v1/board/labfor/db/altsyncram_mgc1.tdf           ;
-+----------------------------------+-----------------+---------------------------------------+-------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                               ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path            ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
+; ../program/program.hex           ; yes             ; User Hexadecimal (Intel-Format) File  ; F:/SPDS/LR_v1/board/program/program.hex ;
+; ../../src/sm_cpu.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_cpu.v              ;
+; ../../src/sm_hex_display.v       ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_hex_display.v      ;
+; ../../src/sm_register.v          ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_register.v         ;
+; ../../src/sm_rom.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_rom.v              ;
+; ../../src/sm_top.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_top.v              ;
+; labfor_top.v                     ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/board/labfor/labfor_top.v ;
+; sm_cpu.vh                        ; yes             ; Auto-Found Unspecified File           ; f:/spds/lr_v1/src/sm_cpu.vh             ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -175,220 +171,211 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 73    ;
-;     -- Combinational with no register       ; 26    ;
-;     -- Register only                        ; 12    ;
-;     -- Combinational with a register        ; 35    ;
+; Total logic elements                        ; 27    ;
+;     -- Combinational with no register       ; 0     ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 27    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 24    ;
-;     -- 3 input functions                    ; 1     ;
-;     -- 2 input functions                    ; 34    ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- 2 input functions                    ; 26    ;
 ;     -- 1 input functions                    ; 1     ;
-;     -- 0 input functions                    ; 1     ;
+;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 41    ;
-;     -- arithmetic mode                      ; 32    ;
+;     -- normal mode                          ; 2     ;
+;     -- arithmetic mode                      ; 25    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
 ;     -- synchronous clear/load mode          ; 0     ;
-;     -- asynchronous clear/load mode         ; 35    ;
+;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 47    ;
-; Total logic cells in carry chains           ; 34    ;
+; Total registers                             ; 27    ;
+; Total logic cells in carry chains           ; 26    ;
 ; I/O pins                                    ; 33    ;
-; Total memory bits                           ; 256   ;
 ; Maximum fan-out node                        ; CLK   ;
-; Maximum fan-out                             ; 47    ;
-; Total fan-out                               ; 382   ;
-; Average fan-out                             ; 3.35  ;
+; Maximum fan-out                             ; 27    ;
+; Total fan-out                               ; 81    ;
+; Average fan-out                             ; 1.35  ;
 +---------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                   ;
-+-------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                      ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                            ; Library Name ;
-+-------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------+--------------+
-; |labfor_top                                     ; 73 (1)      ; 47           ; 256         ; 33   ; 0            ; 26 (1)       ; 12 (0)            ; 35 (0)           ; 34 (0)          ; 0 (0)      ; |labfor_top                                                                                                    ; work         ;
-;    |sm_hex_display:digit_0|                     ; 7 (7)       ; 0            ; 0           ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_hex_display:digit_0                                                                             ;              ;
-;    |sm_hex_display:digit_1|                     ; 7 (7)       ; 0            ; 0           ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_hex_display:digit_1                                                                             ;              ;
-;    |sm_top:sm_top|                              ; 58 (0)      ; 47           ; 256         ; 0    ; 0            ; 11 (0)       ; 12 (0)            ; 35 (0)           ; 34 (0)          ; 0 (0)      ; |labfor_top|sm_top:sm_top                                                                                      ;              ;
-;       |sm_clk_divider:sm_clk_divider|           ; 27 (0)      ; 27           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 27 (0)           ; 26 (0)          ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_clk_divider:sm_clk_divider                                                        ;              ;
-;          |sm_register_we:r_cntr|                ; 27 (27)     ; 27           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 27 (27)          ; 26 (26)         ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr                                  ;              ;
-;       |sm_cpu:sm_cpu|                           ; 17 (8)      ; 8            ; 256         ; 0    ; 0            ; 9 (8)        ; 0 (0)             ; 8 (0)            ; 8 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_cpu:sm_cpu                                                                        ;              ;
-;          |sm_register:r_pc|                     ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 8 (8)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc                                                       ;              ;
-;          |sm_register_file:rf|                  ; 1 (1)       ; 0            ; 256         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf                                                    ;              ;
-;             |altsyncram:rf_rtl_0|               ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0                                ;              ;
-;                |altsyncram_mgc1:auto_generated| ; 0 (0)       ; 0            ; 256         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0|altsyncram_mgc1:auto_generated ;              ;
-;       |sm_metafilter:f1|                        ; 2 (2)       ; 2            ; 0           ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_metafilter:f1                                                                     ;              ;
-;       |sm_metafilter:f2|                        ; 10 (10)     ; 10           ; 0           ; 0    ; 0            ; 0 (0)        ; 10 (10)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_metafilter:f2                                                                     ;              ;
-;       |sm_rom:reset_rom|                        ; 2 (2)       ; 0            ; 0           ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_rom:reset_rom                                                                     ;              ;
-+-------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                           ; Library Name ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------+--------------+
+; |labfor_top                           ; 27 (0)      ; 27           ; 0           ; 33   ; 0            ; 0 (0)        ; 0 (0)             ; 27 (0)           ; 26 (0)          ; 0 (0)      ; |labfor_top                                                                   ; work         ;
+;    |sm_top:sm_top|                    ; 27 (0)      ; 27           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 27 (0)           ; 26 (0)          ; 0 (0)      ; |labfor_top|sm_top:sm_top                                                     ;              ;
+;       |sm_clk_divider:sm_clk_divider| ; 27 (0)      ; 27           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 27 (0)           ; 26 (0)          ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_clk_divider:sm_clk_divider                       ;              ;
+;          |sm_register_we:r_cntr|      ; 27 (27)     ; 27           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 27 (27)          ; 26 (26)         ; 0 (0)      ; |labfor_top|sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr ;              ;
++---------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                  ;
-+---------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+---------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0|altsyncram_mgc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 8            ; 32           ; 8            ; 256  ; None ;
-+---------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-
-
-+----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                 ;
-+-----------------------------------------------------------+----------------------------------------+
-; Register name                                             ; Reason for Removal                     ;
-+-----------------------------------------------------------+----------------------------------------+
-; sm_top:sm_top|sm_metafilter:f0|data[0]                    ; Stuck at GND due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|data[1]                    ; Stuck at VCC due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|data[2]                    ; Stuck at GND due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|data[3]                    ; Stuck at VCC due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|q[0]                       ; Stuck at GND due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|q[1]                       ; Stuck at VCC due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|q[2]                       ; Stuck at GND due to stuck port data_in ;
-; sm_top:sm_top|sm_metafilter:f0|q[3]                       ; Stuck at VCC due to stuck port data_in ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[17][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[16][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[15][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[14][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[13][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[12][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][0] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][0]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[17][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[16][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[15][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[14][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[13][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[12][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][1] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][1]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[17][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[16][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[15][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[14][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[13][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[12][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][2] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][2]  ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][3] ; Lost fanout                            ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][3] ; Lost fanout                            ;
-; Total Number of Removed Registers = 1061                  ;                                        ;
-+-----------------------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                      ;
++-----------------------------------------------------------+---------------------------------------------+
+; Register name                                             ; Reason for Removal                          ;
++-----------------------------------------------------------+---------------------------------------------+
+; sm_top:sm_top|sm_metafilter:f2|data[0]                    ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f2|data[1]                    ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f2|data[2..4]                 ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f1|data[0]                    ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|data[0]                    ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|data[1]                    ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|data[2]                    ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|data[3]                    ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f2|q[0]                       ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f2|q[1]                       ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f2|q[2..4]                    ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f1|q[0]                       ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|q[0]                       ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|q[1]                       ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|q[2]                       ; Stuck at GND due to stuck port data_in      ;
+; sm_top:sm_top|sm_metafilter:f0|q[3]                       ; Stuck at VCC due to stuck port data_in      ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][0]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][1]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][2]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][3]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][4]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][5]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][6]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][7]  ; Stuck at GND due to stuck port clock_enable ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[17][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[16][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[15][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[14][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[13][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[12][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][0] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][0]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[17][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[16][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[15][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[14][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[13][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[12][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][1] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][1]  ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[21][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[20][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[19][2] ; Lost fanout                                 ;
+; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[18][2] ; Lost fanout                                 ;
+; Total Number of Removed Registers = 1081                  ;                                             ;
++-----------------------------------------------------------+---------------------------------------------+
 * Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                      ;
-+-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; Register name                                             ; Reason for Removal        ; Registers Removed due to This Register                                   ;
-+-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; sm_top:sm_top|sm_metafilter:f0|data[0]                    ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f0|q[0],                                     ;
-;                                                           ; due to stuck port data_in ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[28], ;
-;                                                           ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[29], ;
-;                                                           ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[30], ;
-;                                                           ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[31]  ;
-; sm_top:sm_top|sm_metafilter:f0|data[1]                    ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f0|q[1]                                      ;
-;                                                           ; due to stuck port data_in ;                                                                          ;
-; sm_top:sm_top|sm_metafilter:f0|data[2]                    ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f0|q[2]                                      ;
-;                                                           ; due to stuck port data_in ;                                                                          ;
-; sm_top:sm_top|sm_metafilter:f0|data[3]                    ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f0|q[3]                                      ;
-;                                                           ; due to stuck port data_in ;                                                                          ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][8]  ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][8]                 ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][9]  ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][9]                 ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][10] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][10]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][11] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][11]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][12] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][12]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][13] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][13]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][14] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][14]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][15] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][15]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][16] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][16]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][17] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][17]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][18] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][18]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][19] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][19]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][20] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][20]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][21] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][21]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][22] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][22]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][23] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][23]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][24] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][24]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][25] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][25]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][26] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][26]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][27] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][27]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][28] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][28]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][29] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][29]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][30] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][30]                ;
-; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][31] ; Lost Fanouts              ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][31]                ;
-+-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                   ;
++----------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; Register name                          ; Reason for Removal        ; Registers Removed due to This Register                                   ;
++----------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; sm_top:sm_top|sm_metafilter:f2|data[0] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f2|q[0],                                     ;
+;                                        ; due to stuck port data_in ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][0],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][0],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][0],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][0],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][4],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][4],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][4],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[28][4],               ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[0],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[1],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[2],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[3],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[4],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[5],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[7],                       ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc|q[6]                        ;
+; sm_top:sm_top|sm_metafilter:f0|data[0] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f0|q[0],                                     ;
+;                                        ; due to stuck port data_in ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][0],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][1],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][2],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][3],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][4],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][5],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][6],                ;
+;                                        ;                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][7],                ;
+;                                        ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[28], ;
+;                                        ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[29], ;
+;                                        ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[30], ;
+;                                        ;                           ; sm_top:sm_top|sm_clk_divider:sm_clk_divider|sm_register_we:r_cntr|q[31]  ;
+; sm_top:sm_top|sm_metafilter:f2|data[1] ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f2|q[1]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f2|data[2] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f2|q[2]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f2|data[3] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f2|q[3]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f2|data[4] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f2|q[4]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f1|data[0] ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f1|q[0]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f0|data[1] ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f0|q[1]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f0|data[2] ; Stuck at GND              ; sm_top:sm_top|sm_metafilter:f0|q[2]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
+; sm_top:sm_top|sm_metafilter:f0|data[3] ; Stuck at VCC              ; sm_top:sm_top|sm_metafilter:f0|q[3]                                      ;
+;                                        ; due to stuck port data_in ;                                                                          ;
++----------------------------------------+---------------------------+--------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -396,23 +383,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 47    ;
+; Total registers                              ; 27    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 35    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0|altsyncram_mgc1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                          ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                           ;
-+---------------------------------+--------------------+------+-------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------+
@@ -465,83 +443,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0 ;
-+------------------------------------+----------------------+----------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                     ;
-+------------------------------------+----------------------+----------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                  ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                               ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                             ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                             ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                           ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                  ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                  ;
-; WIDTH_A                            ; 8                    ; Untyped                                                  ;
-; WIDTHAD_A                          ; 5                    ; Untyped                                                  ;
-; NUMWORDS_A                         ; 32                   ; Untyped                                                  ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                  ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                  ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                  ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; WIDTH_B                            ; 8                    ; Untyped                                                  ;
-; WIDTHAD_B                          ; 5                    ; Untyped                                                  ;
-; NUMWORDS_B                         ; 32                   ; Untyped                                                  ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                  ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                  ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                  ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                  ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                  ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                  ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                  ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                  ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                  ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                  ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
-; INIT_FILE                          ; UNUSED               ; Untyped                                                  ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                  ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                  ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                                  ;
-; DEVICE_FAMILY                      ; Cyclone              ; Untyped                                                  ;
-; CBXI_PARAMETER                     ; altsyncram_mgc1      ; Untyped                                                  ;
-+------------------------------------+----------------------+----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"                                                            ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                  ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; outSource ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                ;
-+-------------------------------------------+---------------------------------------------------------------------+
-; Name                                      ; Value                                                               ;
-+-------------------------------------------+---------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                   ;
-; Entity Instance                           ; sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                           ;
-;     -- WIDTH_A                            ; 8                                                                   ;
-;     -- NUMWORDS_A                         ; 32                                                                  ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
-;     -- WIDTH_B                            ; 8                                                                   ;
-;     -- NUMWORDS_B                         ; 32                                                                  ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
-+-------------------------------------------+---------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu"                                                                                                                   ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                      ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; extData ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -549,10 +466,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port           ; Type   ; Severity ; Details                                                                             ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
+; rst_n          ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; clkDevide[3]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; clkDevide[2]   ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; clkDevide[1]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; clkDevide[0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; clkEnable      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; regAddr[4..2]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; regAddr[1]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; regAddr[0]     ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; regData[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -563,7 +485,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
-    Info: Processing started: Mon Oct 30 19:46:14 2017
+    Info: Processing started: Mon Nov 13 18:24:21 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labfor_top -c labfor_top
 Warning: Tcl Script File lpm_counter0.qip not found
     Info: set_global_assignment -name QIP_FILE lpm_counter0.qip
@@ -591,8 +513,8 @@ Info: Found 3 design units, including 3 entities, in source file /spds/lr_v1/src
 Info: Found 1 design units, including 1 entities, in source file labfor_top.v
     Info: Found entity 1: labfor_top
 Info: Elaborating entity "labfor_top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(56): object "HEX0_D" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(57): object "HEX1_D" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(58): object "HEX0_D" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(59): object "HEX1_D" assigned a value but never read
 Info: Elaborating entity "sm_top" for hierarchy "sm_top:sm_top"
 Info: Elaborating entity "sm_metafilter" for hierarchy "sm_top:sm_top|sm_metafilter:f0"
 Info: Elaborating entity "sm_metafilter" for hierarchy "sm_top:sm_top|sm_metafilter:f1"
@@ -605,49 +527,38 @@ Warning (10030): Net "rom.data_a" at sm_rom.v(10) has no driver or initial value
 Warning (10030): Net "rom.waddr_a" at sm_rom.v(10) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "rom.we_a" at sm_rom.v(10) has no driver or initial value, using a default initial value '0'
 Info: Elaborating entity "sm_cpu" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu"
+Warning (10858): Verilog HDL warning at sm_cpu.v(30): object outSource used but never assigned
+Warning (10030): Net "outSource" at sm_cpu.v(30) has no driver or initial value, using a default initial value '0'
 Info: Elaborating entity "sm_register" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc"
 Info: Elaborating entity "sm_register_file" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf"
 Info: Elaborating entity "sm_alu" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_alu:alu"
 Info: Elaborating entity "sm_control" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"
 Info: Elaborating entity "sm_hex_display" for hierarchy "sm_hex_display:digit_1"
-Warning: Inferred dual-clock RAM node "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][0]~0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Warning: Memory Initialization File or Hexadecimal (Intel-Format) File "labfor_top.ram0_sm_rom_e96ad487.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info: Inferred 1 megafunctions from design logic
-    Info: Inferred altsyncram megafunction from the following design logic: "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][0]~0" 
-        Info: Parameter OPERATION_MODE set to DUAL_PORT
-        Info: Parameter WIDTH_A set to 8
-        Info: Parameter WIDTHAD_A set to 5
-        Info: Parameter NUMWORDS_A set to 32
-        Info: Parameter WIDTH_B set to 8
-        Info: Parameter WIDTHAD_B set to 5
-        Info: Parameter NUMWORDS_B set to 32
-        Info: Parameter ADDRESS_ACLR_A set to NONE
-        Info: Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info: Parameter ADDRESS_ACLR_B set to NONE
-        Info: Parameter OUTDATA_ACLR_B set to NONE
-        Info: Parameter ADDRESS_REG_B set to CLOCK1
-        Info: Parameter INDATA_ACLR_A set to NONE
-        Info: Parameter WRCONTROL_ACLR_A set to NONE
-Info: Elaborated megafunction instantiation "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0"
-Info: Instantiated megafunction "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|altsyncram:rf_rtl_0" with the following parameter:
-    Info: Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info: Parameter "WIDTH_A" = "8"
-    Info: Parameter "WIDTHAD_A" = "5"
-    Info: Parameter "NUMWORDS_A" = "32"
-    Info: Parameter "WIDTH_B" = "8"
-    Info: Parameter "WIDTHAD_B" = "5"
-    Info: Parameter "NUMWORDS_B" = "32"
-    Info: Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info: Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info: Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info: Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info: Parameter "ADDRESS_REG_B" = "CLOCK1"
-    Info: Parameter "INDATA_ACLR_A" = "NONE"
-    Info: Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info: Found 1 design units, including 1 entities, in source file db/altsyncram_mgc1.tdf
-    Info: Found entity 1: altsyncram_mgc1
+Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED[1]" is stuck at GND
+    Warning (13410): Pin "LED[2]" is stuck at GND
+    Warning (13410): Pin "LED[3]" is stuck at GND
+    Warning (13410): Pin "LED[4]" is stuck at GND
+    Warning (13410): Pin "LED[5]" is stuck at GND
+    Warning (13410): Pin "LED[6]" is stuck at GND
+    Warning (13410): Pin "LED[7]" is stuck at GND
+    Warning (13410): Pin "IND_1A" is stuck at GND
+    Warning (13410): Pin "IND_1B" is stuck at GND
+    Warning (13410): Pin "IND_1C" is stuck at GND
+    Warning (13410): Pin "IND_1D" is stuck at GND
+    Warning (13410): Pin "IND_1E" is stuck at GND
+    Warning (13410): Pin "IND_1F" is stuck at GND
+    Warning (13410): Pin "IND_1G" is stuck at VCC
     Warning (13410): Pin "IND_1H" is stuck at VCC
+    Warning (13410): Pin "IND_2A" is stuck at GND
+    Warning (13410): Pin "IND_2B" is stuck at GND
+    Warning (13410): Pin "IND_2C" is stuck at GND
+    Warning (13410): Pin "IND_2D" is stuck at GND
+    Warning (13410): Pin "IND_2E" is stuck at GND
+    Warning (13410): Pin "IND_2F" is stuck at GND
+    Warning (13410): Pin "IND_2G" is stuck at VCC
     Warning (13410): Pin "IND_2H" is stuck at VCC
 Info: 1053 registers lost all their fanouts during netlist optimizations. The first 100 are displayed below.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][0]" lost all its fanouts during netlist optimizations.
@@ -673,13 +584,14 @@ Info: 1053 registers lost all their fanouts during netlist optimizations. The fi
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][0]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][0]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][0]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][1]" lost all its fanouts during netlist optimizations.
@@ -703,13 +615,14 @@ Info: 1053 registers lost all their fanouts during netlist optimizations. The fi
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][1]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][1]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][1]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][2]" lost all its fanouts during netlist optimizations.
@@ -733,13 +646,14 @@ Info: 1053 registers lost all their fanouts during netlist optimizations. The fi
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[11][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[10][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[9][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[8][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[7][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[6][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[5][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[4][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[3][2]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[2][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[1][2]" lost all its fanouts during netlist optimizations.
+    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[0][2]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[31][3]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[30][3]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[29][3]" lost all its fanouts during netlist optimizations.
@@ -747,21 +661,24 @@ Info: 1053 registers lost all their fanouts during netlist optimizations. The fi
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[27][3]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[26][3]" lost all its fanouts during netlist optimizations.
     Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[25][3]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[24][3]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[23][3]" lost all its fanouts during netlist optimizations.
-    Info: Register "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf|rf[22][3]" lost all its fanouts during netlist optimizations.
     Info: List truncated at 100 items
-Warning: Design contains 1 input pin(s) that do not drive logic
+Warning: Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "A1"
+    Warning (15610): No output dependent on input pin "B1"
+    Warning (15610): No output dependent on input pin "C1"
     Warning (15610): No output dependent on input pin "D1"
-Info: Implemented 114 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "A2"
+    Warning (15610): No output dependent on input pin "B2"
+    Warning (15610): No output dependent on input pin "C2"
+    Warning (15610): No output dependent on input pin "D2"
+Info: Implemented 60 device resources after synthesis - the final resource count might be different
     Info: Implemented 9 input pins
     Info: Implemented 24 output pins
-    Info: Implemented 73 logic cells
-    Info: Implemented 8 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 214 megabytes
-    Info: Processing ended: Mon Oct 30 19:46:23 2017
-    Info: Elapsed time: 00:00:09
+    Info: Implemented 27 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 46 warnings
+    Info: Peak virtual memory: 208 megabytes
+    Info: Processing ended: Mon Nov 13 18:24:39 2017
+    Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:04
 
 
