@@ -75,7 +75,7 @@ module sm_cpu
 
     sm_alu alu
     (
-        .srcA       ( rd1          ),
+        .srcA       ( (outSource) ? 32'b0: rd1	),
         .srcB       ( srcB         ),
         .oper       ( aluControl   ),
         .shift      ( instr[10:6 ] ),
@@ -94,7 +94,8 @@ module sm_cpu
         .regWrite   ( regWrite     ), 
         .aluSrc     ( aluSrc       ),
         .aluControl ( aluControl   ),
-        .signExtend ( signExtend   )
+        .signExtend ( signExtend   ),
+        .outSource	( outSource    )
     );
 
 endmodule
@@ -145,7 +146,7 @@ module sm_control
             { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end        
             { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end 
             
-            { `C_LOAD,  `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; outSource = 1'b1; aluControl = `ALU_SUBU;	end          
+            { `C_LOAD,  `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; outSource = 1'b1; aluControl = `ALU_ADD;	end          
         endcase
     end
 endmodule

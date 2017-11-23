@@ -1,5 +1,5 @@
 Analysis & Synthesis report for labfor_top
-Mon Nov 13 18:24:37 2017
+Thu Nov 23 14:09:32 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
 
 
@@ -21,10 +21,9 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
  13. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_metafilter:f2
  14. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_clk_divider:sm_clk_divider
  15. Parameter Settings for User Entity Instance: sm_top:sm_top|sm_rom:reset_rom
- 16. Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"
- 17. Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu"
- 18. Port Connectivity Checks: "sm_top:sm_top"
- 19. Analysis & Synthesis Messages
+ 16. Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu"
+ 17. Port Connectivity Checks: "sm_top:sm_top"
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -50,7 +49,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                          ;
 +-----------------------------+-----------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Nov 13 18:24:35 2017   ;
+; Analysis & Synthesis Status ; Successful - Thu Nov 23 14:09:31 2017   ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Web Edition ;
 ; Revision Name               ; labfor_top                              ;
 ; Top-level Entity Name       ; labfor_top                              ;
@@ -150,20 +149,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                               ;
-+----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path            ;
-+----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
-; ../program/program.hex           ; yes             ; User Hexadecimal (Intel-Format) File  ; F:/SPDS/LR_v1/board/program/program.hex ;
-; ../../src/sm_cpu.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_cpu.v              ;
-; ../../src/sm_hex_display.v       ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_hex_display.v      ;
-; ../../src/sm_register.v          ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_register.v         ;
-; ../../src/sm_rom.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_rom.v              ;
-; ../../src/sm_top.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/src/sm_top.v              ;
-; labfor_top.v                     ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1/board/labfor/labfor_top.v ;
-; sm_cpu.vh                        ; yes             ; Auto-Found Unspecified File           ; f:/spds/lr_v1/src/sm_cpu.vh             ;
-+----------------------------------+-----------------+---------------------------------------+-----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                    ;
++----------------------------------+-----------------+---------------------------------------+----------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path                 ;
++----------------------------------+-----------------+---------------------------------------+----------------------------------------------+
+; ../../src/sm_cpu.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1_SPDS/src/sm_cpu.v              ;
+; ../../src/sm_hex_display.v       ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1_SPDS/src/sm_hex_display.v      ;
+; ../../src/sm_register.v          ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1_SPDS/src/sm_register.v         ;
+; ../../src/sm_rom.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1_SPDS/src/sm_rom.v              ;
+; ../../src/sm_top.v               ; yes             ; User Verilog HDL File                 ; F:/SPDS/LR_v1_SPDS/src/sm_top.v              ;
+; ../program/program.hex           ; yes             ; User Hexadecimal (Intel-Format) File  ; F:/SPDS/LR_v1_SPDS/board/program/program.hex ;
+; sm_cpu.vh                        ; yes             ; Auto-Found Unspecified File           ; f:/spds/lr_v1_spds/src/sm_cpu.vh             ;
+; labfor_top.v                     ; yes             ; Auto-Found Verilog HDL File           ; F:/SPDS/LR_v1_SPDS/board/labfor/labfor_top.v ;
++----------------------------------+-----------------+---------------------------------------+----------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -443,15 +442,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"                                                            ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                  ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; outSource ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+----------------------------------------------------------------------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "sm_top:sm_top|sm_cpu:sm_cpu"                                                                                                                   ;
 +---------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -485,32 +475,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
-    Info: Processing started: Mon Nov 13 18:24:21 2017
+    Info: Processing started: Thu Nov 23 14:09:18 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off labfor_top -c labfor_top
-Warning: Tcl Script File lpm_counter0.qip not found
-    Info: set_global_assignment -name QIP_FILE lpm_counter0.qip
-Warning: Tcl Script File lpm_decode0.qip not found
-    Info: set_global_assignment -name QIP_FILE lpm_decode0.qip
-Warning: Tcl Script File lpm_mux0.qip not found
-    Info: set_global_assignment -name QIP_FILE lpm_mux0.qip
-Info: Found 4 design units, including 4 entities, in source file /spds/lr_v1/src/sm_cpu.v
+Info: Found 4 design units, including 4 entities, in source file /spds/lr_v1_spds/src/sm_cpu.v
     Info: Found entity 1: sm_cpu
     Info: Found entity 2: sm_control
     Info: Found entity 3: sm_alu
     Info: Found entity 4: sm_register_file
-Info: Found 2 design units, including 2 entities, in source file /spds/lr_v1/src/sm_hex_display.v
+Info: Found 2 design units, including 2 entities, in source file /spds/lr_v1_spds/src/sm_hex_display.v
     Info: Found entity 1: sm_hex_display
     Info: Found entity 2: sm_hex_display_8
-Info: Found 2 design units, including 2 entities, in source file /spds/lr_v1/src/sm_register.v
+Info: Found 2 design units, including 2 entities, in source file /spds/lr_v1_spds/src/sm_register.v
     Info: Found entity 1: sm_register
     Info: Found entity 2: sm_register_we
-Info: Found 1 design units, including 1 entities, in source file /spds/lr_v1/src/sm_rom.v
+Info: Found 1 design units, including 1 entities, in source file /spds/lr_v1_spds/src/sm_rom.v
     Info: Found entity 1: sm_rom
-Info: Found 3 design units, including 3 entities, in source file /spds/lr_v1/src/sm_top.v
+Info: Found 3 design units, including 3 entities, in source file /spds/lr_v1_spds/src/sm_top.v
     Info: Found entity 1: sm_top
     Info: Found entity 2: sm_metafilter
     Info: Found entity 3: sm_clk_divider
-Info: Found 1 design units, including 1 entities, in source file labfor_top.v
+Warning: Using design file labfor_top.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info: Found entity 1: labfor_top
 Info: Elaborating entity "labfor_top" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at labfor_top.v(58): object "HEX0_D" assigned a value but never read
@@ -527,15 +511,13 @@ Warning (10030): Net "rom.data_a" at sm_rom.v(10) has no driver or initial value
 Warning (10030): Net "rom.waddr_a" at sm_rom.v(10) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "rom.we_a" at sm_rom.v(10) has no driver or initial value, using a default initial value '0'
 Info: Elaborating entity "sm_cpu" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu"
-Warning (10858): Verilog HDL warning at sm_cpu.v(30): object outSource used but never assigned
-Warning (10030): Net "outSource" at sm_cpu.v(30) has no driver or initial value, using a default initial value '0'
 Info: Elaborating entity "sm_register" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_register:r_pc"
 Info: Elaborating entity "sm_register_file" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_register_file:rf"
 Info: Elaborating entity "sm_alu" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_alu:alu"
 Info: Elaborating entity "sm_control" for hierarchy "sm_top:sm_top|sm_cpu:sm_cpu|sm_control:sm_control"
 Info: Elaborating entity "sm_hex_display" for hierarchy "sm_hex_display:digit_1"
 Warning: Memory Initialization File or Hexadecimal (Intel-Format) File "labfor_top.ram0_sm_rom_e96ad487.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "LED[1]" is stuck at GND
     Warning (13410): Pin "LED[2]" is stuck at GND
@@ -675,10 +657,10 @@ Info: Implemented 60 device resources after synthesis - the final resource count
     Info: Implemented 9 input pins
     Info: Implemented 24 output pins
     Info: Implemented 27 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 46 warnings
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 42 warnings
     Info: Peak virtual memory: 208 megabytes
-    Info: Processing ended: Mon Nov 13 18:24:39 2017
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Thu Nov 23 14:09:32 2017
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -20,6 +20,7 @@ module sm_testbench;
     wire    [31:0]  imAddr;
     wire    [31:0]  imData;
     sm_rom reset_rom(imAddr, imData);
+	wire	[7:0] extData = 8'b00001001; // Input = 9
 
     //cpu core
     sm_cpu sm_cpu
@@ -29,7 +30,8 @@ module sm_testbench;
         .regAddr ( regAddr ),
         .regData ( regData ),
         .imAddr  ( imAddr  ),
-        .imData  ( imData  )
+        .imData  ( imData  ),
+		.extData ( extData )
     );
 
     // ***** DUT  end  ************************
