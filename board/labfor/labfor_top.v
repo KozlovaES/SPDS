@@ -34,9 +34,9 @@ wire			rst_n = 1;
 wire			clkEnable = 1;
 wire	[3:0]	clkDevide = 4'b1010;
 wire	[4:0]	regAddr = 5'b00010;	
-wire	[31:0]	regData;						// Выводимый регистр с номером regAddr
+wire	[31:0]	regData;		// Выводимый регистр с номером regAddr
 wire 			clk_n;
-// Задаем входные данные при помощи восьми переключателец
+// Задаем входные данные при помощи восьми переключателей
 wire	[7:0]	extData = {D1, C1, B1, A1, D2, C2, B2, A2};
 
 sm_top sm_top

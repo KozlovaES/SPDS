@@ -34,8 +34,8 @@
 							  //		 if (Rs >= 0) PC += (int)offset
 `define C_XORI		6'b001110 // I-type, Xor Immediate
 							  // 		 Rd = Rs xor Immed
-`define C_LOAD		6'b001101 // I-type, Load Input Immediate
-							  // 		 Rd = Immed
+`define C_LOAD		6'b001101 // I-type, Load Input 
+							  // 		 Rd = Input
 
 //instruction function field
 `define F_ADDU      6'b100001 // R-type, Integer Add Unsigned

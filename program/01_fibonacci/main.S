@@ -4,7 +4,7 @@
 
 start:      move    $t0, $0
             li      $t1, 1
-			li		$t2, 7
+			li		$t2, 4// here we load input data to $t2
             move    $v0, $t0
 
 fibonacci:	move	$a0, $t1

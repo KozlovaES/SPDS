@@ -20,7 +20,7 @@ module sm_testbench;
     wire    [31:0]  imAddr;
     wire    [31:0]  imData;
     sm_rom reset_rom(imAddr, imData);
-	wire	[7:0] extData = 8'b00001001; // Input = 9
+	wire	[7:0] extData = 8'b00000100; // Input = 4
 
     //cpu core
     sm_cpu sm_cpu

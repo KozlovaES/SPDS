@@ -7,7 +7,7 @@ Disassembly of section .text:
 00000000 <.text>:
    0:	00004025 	move	t0,zero
    4:	24090001 	li	t1,1
-   8:	240a0007 	li	t2,7
+   8:	240a0004 	li	t2,4
    c:	01001025 	move	v0,t0
 
 00000010 <fibonacci>:
