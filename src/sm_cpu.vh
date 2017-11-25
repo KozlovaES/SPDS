@@ -33,7 +33,11 @@
 `define C_BGEZ		6'b000001 // I-type, Branch on Greater than or Equal to Zero
 							  //		 if (Rs >= 0) PC += (int)offset
 `define C_XORI		6'b001110 // I-type, Xor Immediate
-							  // 		 Rd = Rs xor Immed
+							  // 		 Rt = Rs xor Immed
+`define C_LW		6'b100011 // I-type, Load Word
+							  //		 Rs = memory[Rt + Immed]
+`define C_SW		6'b101011 // I-type, Store Word
+							  //		 memory[Rs + Immed] = Rt
 
 //instruction function field
 `define F_ADDU      6'b100001 // R-type, Integer Add Unsigned
@@ -41,14 +45,15 @@
 `define F_OR        6'b100101 // R-type, Logical OR
                               //         Rd = Rs | Rt
 `define F_SRL       6'b000010 // R-type, Shift Right Logical
-                              //         Rd = Rs∅ >> shift
+                              //         Rd = Rs >> shift
 `define F_SLTU      6'b101011 // R-type, Set on Less Than Unsigned
-                              //         Rd = (Rs∅ < Rt∅) ? 1 : 0
+                              //         Rd = (Rs < Rt) ? 1 : 0
 `define F_SUBU      6'b100011 // R-type, Unsigned Subtract
                               //         Rd = Rs – Rt
 `define F_SLLV      6'b000100 // R-type, Shift word Left Logical Variable
                               //         Rd = Rt << Rs
 `define F_NOR		6'b100111 // R-type, Logical NOR
 							  // 		 Rd = ~(Rs | Rt)
+
 
 `define F_ANY       6'b??????

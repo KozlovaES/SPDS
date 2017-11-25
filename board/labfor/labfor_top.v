@@ -33,9 +33,11 @@ wire			clkIn = CLK;
 wire			rst_n = A2;
 wire			clkEnable = B2;
 wire	[3:0]	clkDevide = 4'b1010;
-wire	[4:0]	regAddr = {C1, B1, A1, D2, C2};	// Управляем выводом регистра с помощью пяти переключателей
+wire	[4:0]	regAddr = {C1, B1, A1, D2, C2};
 wire	[31:0]	regData;						// Выводимый регистр с номером regAddr
 wire 			clk_n;
+wire	[3:0]	ramAddr = {C1, B1, A1, D2, C2}; // Адрес слова в RAM
+wire	[7:0]	ramData;						// Слово по адресу ramAddr
 
 
 sm_top sm_top
@@ -45,14 +47,17 @@ sm_top sm_top
         .clkDevide  ( clkDevide ),
         .clkEnable  ( clkEnable ),
         .clk        ( clk_n     ),
-        .regAddr    ( regAddr   ),	// Подключение адреса
-        .regData    ( regData   )	// Подключение вывода регистра
+        .regAddr    ( regAddr   ),	// Подключение адреса регистрового файла
+        .regData    ( regData   ),	// Подключение вывода регистра
+        .ramAddr	( ramAddr	),	// Подключение адреса RAM
+        .ramData	( ramData	)	// Подключение вывода слова RAM (младший бит)
     );
 
+// Десятичные точки
 assign IND_1H = 1'b1;
 assign IND_2H = 1'b1;
 
-wire	[31:0]	h7segment = regData;	// Вывод значения на другой wire
+wire	[7:0]	h7segment = ramData;	// Вывод значения на другой wire
 wire	[6:0]	HEX0_D = {IND_1A, IND_1B, IND_1C, IND_1D, IND_1E, IND_1F, IND_1G};
 wire	[6:0]	HEX1_D = {IND_2A, IND_2B, IND_2C, IND_2D, IND_2E, IND_2F, IND_2G};
 

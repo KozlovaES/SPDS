@@ -17,7 +17,9 @@ module sm_cpu
     input   [ 4:0]  regAddr,    // debug access reg address
     output  [31:0]  regData,    // debug access reg data
     output  [31:0]  imAddr,     // instruction memory address
-    input   [31:0]  imData      // instruction memory data
+    input   [31:0]  imData,     // instruction memory data
+    input	[ 3:0]	ramAddr,	// RAM address
+    output	[ 7:0]	ramData		// RAM data (only low byte)
 );
     //control wires
     wire        pcSrc;
@@ -26,6 +28,8 @@ module sm_cpu
     wire        aluSrc;
     wire        aluZero;
     wire [ 3:0] aluControl;
+    wire 		memToReg;
+    wire		memWrite;
 
     //program counter
     wire [31:0] pc;
@@ -47,6 +51,9 @@ module sm_cpu
     wire [31:0] rd1;
     wire [31:0] rd2;
     wire [31:0] wd3;
+    
+    wire [31:0] RAMReadData;
+    wire [31:0] resultData = (memToReg) ? RAMReadData : wd3; 
 
     sm_register_file rf
     (
@@ -58,7 +65,7 @@ module sm_cpu
         .rd0        ( rd0          ),
         .rd1        ( rd1          ),
         .rd2        ( rd2          ),
-        .wd3        ( wd3          ),
+        .wd3        ( resultData   ),
         .we3        ( regWrite     )
     );
 
@@ -91,7 +98,24 @@ module sm_cpu
         .regWrite   ( regWrite     ), 
         .aluSrc     ( aluSrc       ),
         .aluControl ( aluControl   ),
-        .signExtend ( signExtend   )
+        .signExtend ( signExtend   ),
+        .memToReg	( memToReg 	   ),
+        .memWrite	( memWrite	   )
+    );
+    
+    // Data memory file    
+    
+    ram_2port ram_2port
+    (
+		.address_a	( wd3 	  ),
+		.address_b	( ramAddr ),
+		.clock		( clk 	  ),
+		.data_a		( rd2 	  ),
+		.data_b		( ramData ),
+		.wren_a		(  ),
+		.wren_b		(  ),
+		.q_a		( RAMReadData ),
+		.q_b		( ramData )
     );
 
 endmodule
@@ -106,7 +130,9 @@ module sm_control
     output reg       regWrite, 
     output reg       aluSrc,
     output reg [3:0] aluControl,
-    output reg 		 signExtend
+    output reg 		 signExtend,
+    output reg		 memToReg,
+    output reg		 memWrite
 );
     reg          branch;
     reg          condZero;
@@ -120,6 +146,8 @@ module sm_control
         aluSrc      = 1'b0;
         signExtend  = 1'b0;
         aluControl  = `ALU_ADD;
+        memToReg	= 1'b0;
+        memWrite	= 1'b0;
 
         casez( {cmdOper,cmdFunk} )
             default               : ;
@@ -131,14 +159,16 @@ module sm_control
             { `C_SPEC,  `F_SUBU } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SUBU; end
             { `C_SPEC,  `F_SLLV } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_SLLV; end
 			{ `C_SPEC,  `F_NOR  } : begin regDst = 1'b1; regWrite = 1'b1; aluControl = `ALU_NOR;  end
-
+			
             { `C_ADDIU, `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_ADD;  end
             { `C_LUI,   `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_LUI;  end
             { `C_XORI,	`F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; signExtend = 1'b1; aluControl = `ALU_XORI; end
+            { `C_LW,	`F_ANY	} : begin regWrite = 1'b1; aluSrc = 1'b1; memToReg = 1'b1; aluControl = `ALU_ADD;    end
+            { `C_SW,	`F_ANY	} : begin memWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_ADD;  end 
 
             { `C_BEQ,   `F_ANY  } : begin branch = 1'b1; condZero = 1'b1; aluControl = `ALU_SUBU; end
-            { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end        
-            { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end           
+            { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end
+            { `C_BGEZ,	`F_ANY 	} :	begin branch = 1'b1; aluControl = `ALU_SIGN; 				  end
         endcase
     end
 endmodule
