@@ -7,7 +7,7 @@ module sm_testbench;
 
     // simulation options
     parameter Tt     = 20;
-    parameter Ncycle = 120;
+    parameter Ncycle = 300;
 
     reg         clk;
     reg         rst_n;
@@ -22,6 +22,9 @@ module sm_testbench;
     sm_rom reset_rom(imAddr, imData);
 
     //cpu core
+	wire [3:0] ramAddr = 4'b0;
+	wire [7:0] ramData;
+
     sm_cpu sm_cpu
     (
         .clk     ( clk     ),
@@ -29,7 +32,9 @@ module sm_testbench;
         .regAddr ( regAddr ),
         .regData ( regData ),
         .imAddr  ( imAddr  ),
-        .imData  ( imData  )
+        .imData  ( imData  ),
+        .ramAddr ( ramAddr ),
+        .ramData ( ramData )
     );
 
     // ***** DUT  end  ************************
@@ -98,14 +103,18 @@ module sm_testbench;
                 { `C_SPEC,  `F_SRL  } : $write ("srl   $%1d, $%1d, $%1d", cmdRd, cmdRs, cmdRt);
                 { `C_SPEC,  `F_SLTU } : $write ("sltu  $%1d, $%1d, $%1d", cmdRd, cmdRs, cmdRt);
                 { `C_SPEC,  `F_SUBU } : $write ("subu  $%1d, $%1d, $%1d", cmdRd, cmdRs, cmdRt);
+				{ `C_SPEC,  `F_SLLV } : $write ("sllv  $%1d, $%1d, $%1d", cmdRd, cmdRs, cmdRt);
+				{ `C_SPEC,  `F_NOR  } : $write ("nor   $%1d, $%1d, $%1d", cmdRd, cmdRs, cmdRt);
 
                 { `C_ADDIU, `F_ANY  } : $write ("addiu $%1d, $%1d, %1d", cmdRt, cmdRs, cmdImm);
                 { `C_LW, 	`F_ANY  } : $write ("lw    $%1d, $%1d, %1d", cmdRt, cmdRs, cmdImm);
                 { `C_SW, 	`F_ANY  } : $write ("sw	   $%1d, $%1d, %1d", cmdRt, cmdRs, cmdImm);
                 { `C_LUI,   `F_ANY  } : $write ("lui   $%1d, %1d",       cmdRt, cmdImm);
+				{ `C_XORI,	`F_ANY  } : $write ("xori  $%1d, $%1d, %1d", cmdRt, cmdRs, cmdImm);
 
                 { `C_BEQ,   `F_ANY  } : $write ("beq   $%1d, $%1d, %1d", cmdRs, cmdRt, cmdImmS + 1);
                 { `C_BNE,   `F_ANY  } : $write ("bne   $%1d, $%1d, %1d", cmdRs, cmdRt, cmdImmS + 1);
+				{ `C_BGEZ,  `F_ANY  } : $write ("bgez  $%1d, $%1d, %1d", cmdRs, cmdRt, cmdImmS + 1);
             endcase
         end
 
@@ -115,12 +124,12 @@ module sm_testbench;
     //simulation debug output
     integer cycle; initial cycle = 0;
 
-    initial regAddr = 4'b0010; // get PC
+    initial regAddr = 4'b0000; // get PC
 
     always @ (posedge clk)
     begin
-        $write ("%5d  pc = %2d  pcaddr = %h  instr = %h   v0 = %1d", 
-                  cycle, regData, (regData << 2), sm_cpu.instr, sm_cpu.rf.rf[2]);
+        $write ("%5d  pc = %2d  pcaddr = %h  instr = %h   v0 = %2d   t0 = %1d	t2 = %1d", 
+                  cycle, regData, (regData << 2), sm_cpu.instr, sm_cpu.rf.rf[2], sm_cpu.rf.rf[8], sm_cpu.rf.rf[10]);
 
         disasmInstr(sm_cpu.instr);
 

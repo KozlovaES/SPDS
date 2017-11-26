@@ -36,7 +36,7 @@ wire	[3:0]	clkDevide = 4'b1010;
 wire	[4:0]	regAddr = {C1, B1, A1, D2, C2};
 wire	[31:0]	regData;						// Выводимый регистр с номером regAddr
 wire 			clk_n;
-wire	[3:0]	ramAddr = {C1, B1, A1, D2, C2}; // Адрес слова в RAM
+wire	[3:0]	ramAddr = {C1, B1, A1, D2}; // Адрес слова в RAM
 wire	[7:0]	ramData;						// Слово по адресу ramAddr
 
 

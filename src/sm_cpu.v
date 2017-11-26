@@ -103,19 +103,21 @@ module sm_cpu
         .memWrite	( memWrite	   )
     );
     
-    // Data memory file    
+    // Data memory file 
+    wire [31:0] ramOut; 
+    assign ramData = ramOut[7:0];  
     
-    ram_2port ram_2port
+    ram ram
     (
-		.address_a	( wd3 	  ),
-		.address_b	( ramAddr ),
-		.clock		( clk 	  ),
-		.data_a		( rd2 	  ),
-		.data_b		( ramData ),
-		.wren_a		(  ),
-		.wren_b		(  ),
+		.addr_a		( wd3[3:0]	  ),
+		.addr_b		( ramAddr 	  ),
+		.clk		( clk 	  	  ),
+		.data_a		( rd2 	  	  ),
+		.data_b		( ramData	  ),
+		.we_a		( memToReg	  ),
+		.we_b		(  			  ),
 		.q_a		( RAMReadData ),
-		.q_b		( ramData )
+		.q_b		( ramOut	  )
     );
 
 endmodule
