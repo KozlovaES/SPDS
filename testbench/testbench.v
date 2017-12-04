@@ -7,7 +7,7 @@ module sm_testbench;
 
     // simulation options
     parameter Tt     = 20;
-    parameter Ncycle = 300;
+    parameter Ncycle = 1000;
 
     reg         clk;
     reg         rst_n;
@@ -66,6 +66,15 @@ module sm_testbench;
         for (i = 0; i < 32; i = i + 1)
             sm_cpu.rf.rf[i] = 0;
     end
+
+	integer ram_iter;
+	initial begin
+		$display("Unsorted RAM:");
+			for (ram_iter = 0; ram_iter < 16; ram_iter = ram_iter + 1) 
+			begin
+				$display("[%1d]   %1h	%1d", ram_iter, sm_cpu.ram.ram[ram_iter], sm_cpu.ram.ram[ram_iter]);
+			end
+	end
 
     task disasmInstr
     (
@@ -128,8 +137,8 @@ module sm_testbench;
 
     always @ (posedge clk)
     begin
-        $write ("%5d  pc = %2d  pcaddr = %h  instr = %h   v0 = %2d   t0 = %1d	t2 = %1d", 
-                  cycle, regData, (regData << 2), sm_cpu.instr, sm_cpu.rf.rf[2], sm_cpu.rf.rf[8], sm_cpu.rf.rf[10]);
+        $write ("%5d  pc = %2d  pcaddr = %h  instr = %h   v0 = %2d    t0 = %1d    t4 = %1d    t3 = %1d    t5 = %1d    t2 = %1d", 
+                  cycle, regData, (regData << 2), sm_cpu.instr, sm_cpu.rf.rf[2], sm_cpu.rf.rf[8], sm_cpu.rf.rf[12], sm_cpu.rf.rf[11], sm_cpu.rf.rf[13], sm_cpu.rf.rf[10]);
 
         disasmInstr(sm_cpu.instr);
 
@@ -139,6 +148,11 @@ module sm_testbench;
 
         if (cycle > Ncycle)
         begin
+			$display("Sorted RAM:");
+			for (ram_iter = 0; ram_iter < 16; ram_iter = ram_iter + 1) 
+			begin
+				$display("[%1d]   %1h	%1d", ram_iter, sm_cpu.ram.ram[ram_iter], sm_cpu.ram.ram[ram_iter]);
+			end
             $display ("Timeout");
             $stop;
         end

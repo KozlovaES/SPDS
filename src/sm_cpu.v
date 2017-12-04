@@ -19,7 +19,7 @@ module sm_cpu
     output  [31:0]  imAddr,     // instruction memory address
     input   [31:0]  imData,     // instruction memory data
     input	[ 3:0]	ramAddr,	// RAM address
-    output	[ 7:0]	ramData		// RAM data (only low byte)
+    output	[ 7:0]	ramData		// RAM data (low byte)
 );
     //control wires
     wire        pcSrc;
@@ -59,8 +59,8 @@ module sm_cpu
     (
         .clk        ( clk          ),
         .a0         ( regAddr      ),
-        .a1         ( instr[25:21] ),
-        .a2         ( instr[20:16] ),
+        .a1         ( instr[25:21] ),	// rs
+        .a2         ( instr[20:16] ),	// rt
         .a3         ( a3           ),
         .rd0        ( rd0          ),
         .rd1        ( rd1          ),
@@ -76,7 +76,6 @@ module sm_cpu
 
     //alu
     wire [31:0] srcB = aluSrc ? signImm : rd2;
-
     sm_alu alu
     (
         .srcA       ( rd1          ),
@@ -113,8 +112,8 @@ module sm_cpu
 		.addr_b		( ramAddr 	  ),
 		.clk		( clk 	  	  ),
 		.data_a		( rd2 	  	  ),
-		.data_b		( ramData	  ),
-		.we_a		( memToReg	  ),
+		.data_b		( 			  ),
+		.we_a		( memWrite	  ),
 		.we_b		(  			  ),
 		.q_a		( RAMReadData ),
 		.q_b		( ramOut	  )
@@ -165,8 +164,11 @@ module sm_control
             { `C_ADDIU, `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_ADD;  end
             { `C_LUI,   `F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_LUI;  end
             { `C_XORI,	`F_ANY  } : begin regWrite = 1'b1; aluSrc = 1'b1; signExtend = 1'b1; aluControl = `ALU_XORI; end
+            
+            
             { `C_LW,	`F_ANY	} : begin regWrite = 1'b1; aluSrc = 1'b1; memToReg = 1'b1; aluControl = `ALU_ADD;    end
             { `C_SW,	`F_ANY	} : begin memWrite = 1'b1; aluSrc = 1'b1; aluControl = `ALU_ADD;  end 
+
 
             { `C_BEQ,   `F_ANY  } : begin branch = 1'b1; condZero = 1'b1; aluControl = `ALU_SUBU; end
             { `C_BNE,   `F_ANY  } : begin branch = 1'b1; aluControl = `ALU_SUBU; 				  end
@@ -200,7 +202,7 @@ module sm_alu
             `ALU_NOR  : result = ~(srcA | srcB);
             
             // Операция проверки знака
-            `ALU_SIGN : result = (srcA[31] == 1) ? 1 : 0;
+            `ALU_SIGN : result = (srcA[31] != 1) ? 1 : 0;
             
         endcase
     end
